@@ -1,0 +1,1 @@
+<button type="button" class="{{ $class ?? null }}">{{ $value ?? null }}</button>
