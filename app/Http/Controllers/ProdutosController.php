@@ -50,17 +50,13 @@ class ProdutosController extends Controller
      */
     public function index()
     {
-        
+
         $produtos = $this->repository->all();
 
-        if (request()->wantsJson()) {
+        return view('produtos.index', [
+            'produtos' => $produtos,
+        ]);
 
-            return view('produtos.view', [
-                'produtos' => $produtos,
-            ])
-        }
-
-        
     }
 
     /**
@@ -95,8 +91,7 @@ class ProdutosController extends Controller
     public function show($id)
     {
         $produto = $this->repository->find($id);
-
-        
+    
         return view('produtos.show', [
             'produto' => $produto,
         ]);
